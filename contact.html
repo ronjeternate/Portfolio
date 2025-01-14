@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="contact.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="home.html" class="logo">Portfolio</a>
+            <nav class="navbar">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="project.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="#" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <div class="containers">
+            <main class="row">
+    
+                <section class="col left">
+                    <div class="contactTitle">
+                        <h2>Get In Touch</h2>
+                        <p>Reach out on me, here are my socials:</p>
+                    </div>
+    
+                    <div class="contactInfo">
+                        
+                        <div class="iconGroup">
+                            <div class="icon">
+                                <i class="ri-phone-fill"></i>
+                            </div>
+                            <div class="details">
+                                <span>Phone</span>
+                                <span>+63 963 381 2109</span>
+                            </div>
+                        </div>
+    
+                        <div class="iconGroup">
+                            <div class="icon">
+                                <i class="ri-mail-fill"></i>
+                            </div>
+                            <div class="details">
+                                <span>Email</span>
+                                <span>ropo.ternate.swu@phinmaed.com</span>
+                            </div>
+                        </div>
+    
+                        <div class="iconGroup">
+                            <div class="icon">
+                                <i class="ri-map-pin-fill"></i>
+                            </div>
+                            <div class="details">
+                                <span>Location</span>
+                                <span>1515 Andres Abellana Ext. Cebu City</span>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="socialMedia">
+                        <a href="https://www.facebook.com/ronronnimaica" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+                        <a href="https://www.instagram.com/dzuhroinroin/" target="_blank"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.tiktok.com/@ronjenathis?_t=ZS-8szsCDO4g2k&_r=1" target="_blank"><i class="ri-tiktok-fill"></i></i></a>
+                        <a href="https://www.linkedin.com/in/ronje-ternate-978159340/"><i class="ri-linkedin-box-fill"></i></i></a>
+                    </div>
+                </section>
+    
+                <section class="col right">
+                    <form class="messageForm">
+                        
+                        <div class="inputGroup halfWidth">
+                            <input type="text" name="name" required="required">
+                            <label>Your Name</label>
+                        </div>
+    
+                        <div class="inputGroup halfWidth">
+                            <input type="email" name="email" required="required">
+                            <label>Email</label>
+                        </div>
+    
+                        <div class="inputGroup fullWidth">
+                            <input type="text" name="subject" required="required">
+                            <label>Subject</label>
+                        </div>
+    
+                        <div class="inputGroup fullWidth">
+                            <textarea name="message" required="required"></textarea>
+                            <label>Say Something</label>
+                        </div>
+    
+                        <div class="inputGroup fullWidth">
+                            <button>Send Message</button>
+                        </div>
+    
+                    </form>
+                </section>
+    
+            </main>
+        </div>
+
+        <script>
+            document.querySelector('.messageForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const nameInput = document.querySelector('input[name="name"]');
+                const emailInput = document.querySelector('input[name="email"]');
+                const subjectInput = document.querySelector('input[name="subject"]');
+                const messageInput = document.querySelector('textarea[name="message"]');
+
+                const name = nameInput.value;
+                const email = emailInput.value;
+                const subject = subjectInput.value;
+                const message = messageInput.value;
+
+                try {
+                    const response = await fetch('http://localhost:3000/send-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, subject, message }),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message); // "Email sent successfully!"
+                        // Clear input fields
+                        nameInput.value = '';
+                        emailInput.value = '';
+                        subjectInput.value = '';
+                        messageInput.value = '';
+                    } else {
+                        alert(`Error: ${result.message}`);
+                    }
+                } catch (error) {
+                    alert('Failed to send message. Please try again later.');
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

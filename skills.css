@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+}
+
+body{
+    height: 100vh;
+    background: url("assets/background.jpg") no-repeat center/cover;
+    padding: 50px 5%;
+}
+
+.container{
+    position: relative;
+    height: 100%;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+}
+
+header{
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.logo{
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    border-bottom: 2px solid transparent;
+    transition: .5s;
+
+}
+
+.navbar a:hover,
+.navbar a.active{
+    border-color: white;
+}
+.skills-detail{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 150px;
+    padding: 50px 5% 0;
+    color: white;
+    transform: scale(0);
+    animation: fade-up 0.5s forwards;
+
+}
+@keyframes fade-up {
+    0%{
+        opacity: 0;
+        transform: translateY(30px) scale(0.9)
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.home-image .img-box{
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px white;
+    overflow: hidden;
+}
+
+.home-image .img-box img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 10px;    
+}
+
+.skills-detail h1{
+    text-align: center;
+
+}
+
+.skills-detail h3{
+    margin: 5px;
+}
+
+.skills{
+    width: 650px;
+    margin: 80px auto;
+    color: white;
+    padding: 30px;
+
+    border-radius: 30px;
+}
+
+.skills li{
+    padding: 5px;
+}
+
+.bar {
+    position: relative; 
+    background: #353b48;
+    display: block;
+    height: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.bar .percentage {
+    position: absolute;
+    top: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.bar:hover .percentage {
+    opacity: 1; 
+}
+
+.bar:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.bar span {
+    height: 100%;
+    float: left;
+    background: linear-gradient(90deg, rgba(255, 0, 237, 1) 0%, rgba(107, 9, 121, 1) 49%, rgba(89, 0, 255, 1) 100%);
+}
+
+.bar::after {
+    content: attr(data-percent);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+}
+
+.bar:hover::after {
+    display: block;
+}
+
+.html{
+    width: 90%;
+    animation: html 3s;
+}
+
+.prototyping{
+    width: 100%;
+    animation: prototyping 3s;
+}
+
+.design{
+    width: 90%;
+    animation: design 3s;
+}
+
+.css{
+    width: 70%;
+    animation: css 3s;
+}
+
+.js{
+    width: 60%;
+    animation: js 3s;
+}
+
+.php{
+    width: 50%;
+    animation: php 3s;
+}
+
+.react{
+    width: 50%;
+    animation: react 3s;
+}
+
+@keyframes html{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 90%;
+    }
+}
+@keyframes prototyping{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+@keyframes design{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 90%;
+    }
+}
+@keyframes css{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+@keyframes js{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 60%;
+    }
+}
+@keyframes php{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 50%;
+    }
+}
+@keyframes react{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 50%;
+    }
+}
