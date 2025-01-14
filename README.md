@@ -1,1 +1,1 @@
-"# Portfolio" 
+Ronje Ternate Portfolio
