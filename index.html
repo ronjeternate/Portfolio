@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
-    
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Portfolio</a>
+            <nav class="navbar">
+                <a href="#" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="project.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="home">
+            <div class="home-detail">
+                <h1>Ronje Ternate</h1>
+                <h2>UI/UX Designer and Front-End Developer</h2>
+                <p>Innovative UI/UX Designer and Front-End Developer with robust experience in creating intuitive and engaging digital interfaces. Strong focus on user-centered design, ensuring seamless interaction and optimal user satisfaction. Proficient in modern front-end technologies and frameworks, with expertise in wireframing, prototyping, and conducting user research to inform design decisions. Adept at translating design concepts into responsive, high-performance web applications.</p>
+                <div class="download-social">
+                    <button id="download-btn" class="btn">Download CV</button>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ronronnimaica" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+                        <a href="https://www.linkedin.com/in/ronje-ternate-978159340/" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                        <a href="https://www.freelancer.com/u/ronronnimaica" target="_blank"><i class="ri-twitter-fill"></i></a>
+                        <a href="https://www.instagram.com/dzuhroinroin/" target="_blank"><i class="ri-instagram-line"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-image">
+                <div class="img-box">
+                    <img src="assets/picture.png" alt="">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById("download-btn").addEventListener("click", function () {
+            const link = document.createElement("a");
+            link.href = "files/RonjeTernateCV.pdf";
+            link.download = "RonjeTernateCV.pdf";
+            link.click();
+        });
+    </script>
 </body>
 </html>
